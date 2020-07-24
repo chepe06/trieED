@@ -10,6 +10,27 @@
 
 using namespace std;
 
+string minusculas(string str){
+     str[0] = tolower(str[0]);
+     return str;
+}
+
+string quitarIndeseados(string Palabra){
+    string aux;
+    int Switch = 0;
+    const char CaracteresIndeseados[] = { '(', ')', ';', ',', '.', ':', '[', ']', '-', '<', '>', '_', '+', '#', '$', '%', '&', '/' };
+    for (int i = 0; i < Palabra.length(); i++)
+    {
+        for (int j = 0; j < strlen(CaracteresIndeseados); j++)
+            //cout << "letra: " << Palabra[i] << " - caracter: " << CaracteresIndeseados[j];
+            if (Palabra[i] == CaracteresIndeseados[j]) Switch = 1;
+
+        if (Switch == 0) aux += Palabra[i];
+        Switch = 0;
+    }
+    return aux;
+}
+
 int main()
 {
     setlocale(LC_CTYPE, "Spanish");
@@ -47,10 +68,11 @@ int main()
         string line = lineas->getElement();
         istringstream isstream(line);
 
-        while(isstream >> line) {
+        while(isstream >> line) { //Separa la linea cada vez que encuentra un espacio
+            line = minusculas(line);
+            line = quitarIndeseados(line);
             cout << line << endl;
         }
-
     }
     return 0;
 
