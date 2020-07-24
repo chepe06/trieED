@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1595181891 source:c:\users\asus\desktop\code blocks\proyectos\archivotexto\main.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<stdlib.h>
+
+1595557364 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieprojected\archivotexto\main.cpp
+	<locale.h>
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<string.h>
+	"unsortedArrayDictionary.h"
+
+1595555122 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieprojected\archivotexto\include\unsortedarraydictionary.h
+	"Dictionary.h"
+	"kvpair.h"
+	"arrayList.h"
+
+1595539082 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieprojected\archivotexto\include\dictionary.h
+	"List.h"
+
+1589996636 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieprojected\archivotexto\include\list.h
+
+1595543475 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieprojected\archivotexto\include\kvpair.h
+
+1595554247 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieprojected\archivotexto\include\arraylist.h
+	<iostream>
+	"List.h"
+	<stdexcept>
+
+1595561703 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\main.cpp
+	<locale.h>
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<string.h>
+	"unsortedArrayDictionary.h"
+
+1595555122 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\unsortedarraydictionary.h
+	"Dictionary.h"
+	"kvpair.h"
+	"arrayList.h"
+
+1595539082 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\dictionary.h
+	"List.h"
+
+1589996636 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\list.h
+
+1595543475 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\kvpair.h
+
+1595554247 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\arraylist.h
+	<iostream>
+	"List.h"
+	<stdexcept>
+
