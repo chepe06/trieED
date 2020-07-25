@@ -34,10 +34,17 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/BSTNode.h" />
+		<Unit filename="include/BSTree.h" />
+		<Unit filename="include/BSTreeDictionary.h" />
+		<Unit filename="include/DLinkedList.h" />
+		<Unit filename="include/DNode.h" />
 		<Unit filename="include/Dictionary.h" />
 		<Unit filename="include/List.h" />
 		<Unit filename="include/arrayList.h" />
 		<Unit filename="include/kvpair.h" />
+		<Unit filename="include/trie.h" />
+		<Unit filename="include/trienode.h" />
 		<Unit filename="include/unsortedArrayDictionary.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
