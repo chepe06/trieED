@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1595703539 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
+1595707197 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
 	<iostream>
 	"words.h"
 
-1595703707 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
+1595708030 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
 	<fstream>
+	<sstream>
 	<string.h>
 	"unsortedArrayDictionary.h"
 	"trie.h"
@@ -26,7 +27,7 @@
 	"List.h"
 	<stdexcept>
 
-1595694955 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trie.h
+1595707310 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trie.h
 	"TrieNode.h"
 	<string>
 	<stdexcept>

@@ -9,10 +9,10 @@ int main()
     setlocale(LC_CTYPE, "Spanish");
     int opc = 0;
 
-    words palabras;// = new words();
+    words palabras;
 
-    while(opc != 6){
-        cout << "Seleccione una opción:\n1) Consultar por prefijo\n2) Buscar palabra\n3) Buscar por cantidad de letras\n4) Palabras más utilizadas\n5) Imprimir texto\n6) Salir del programa\n\nOpción: ";
+    while(opc != 7){ //Menú de opciones
+        cout << "Seleccione una opción:\n1) Consultar por prefijo\n2) Buscar palabra\n3) Buscar por cantidad de letras\n4) Palabras más utilizadas\n5) Imprimir texto\n6) Imprimir palabras del trie\n7) Salir del programa\n\nOpción: ";
         cin >> opc;
         system("cls");
         if(opc == 1){
@@ -23,7 +23,7 @@ int main()
 
         } else if(opc == 4){
             int opcAux = 0;
-            while(opcAux != 5){
+            while(opcAux != 5){ //Menú de opciones 2
                 cout << "Seleccione una opción:\n1) Agregar palabra a ignorar\n2) Limpiar lista de palabras a ignorar\n3) Ver top\n4) Ver palabras menos utilizadas\n5) Regresar\n\nOpción: ";
                 cin >> opcAux;
                 system("cls");
@@ -40,6 +40,8 @@ int main()
         } else if(opc == 5){
             palabras.imprimirDiccionario();
         } else if(opc == 6){
+            palabras.imprimirTrie();
+        } else if(opc == 7){
             cout << "Saliendo...\n";
         } else {
             cout << "Opción inválida\n";
