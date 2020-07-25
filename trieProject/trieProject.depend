@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1595707197 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
+	<iostream>
+	"words.h"
+
+1595708030 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
+	<fstream>
+	<sstream>
+	<string.h>
+	"unsortedArrayDictionary.h"
+	"trie.h"
+
+1595555122 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\unsortedarraydictionary.h
+	"Dictionary.h"
+	"kvpair.h"
+	"arrayList.h"
+
+1595539082 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\dictionary.h
+	"List.h"
+
+1589996636 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\list.h
+
+1595543475 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\kvpair.h
+
+1595554247 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\arraylist.h
+	<iostream>
+	"List.h"
+	<stdexcept>
+
+1595707310 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trie.h
+	"TrieNode.h"
+	<string>
+	<stdexcept>
+
+1595694983 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trienode.h
+	"bstreedictionary.h"
+	"arrayList.h"
+
+1595695064 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstreedictionary.h
+	"Dictionary.h"
+	"BSTree.h"
+	"KVPair.h"
+	<stdexcept>
+
+1595695102 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstree.h
+	"BSTNode.h"
+	<stdexcept>
+	"DLinkedList.h"
+
+1595695435 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstnode.h
+
+1595695479 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\dlinkedlist.h
+	<stdexcept>
+	"DNode.h"
+
+1595695516 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\dnode.h
+

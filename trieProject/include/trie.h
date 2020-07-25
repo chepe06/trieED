@@ -129,7 +129,6 @@ public:
         current->getIndex();
     }
 
-
-    };
+};
 
 #endif // TRIE_H
