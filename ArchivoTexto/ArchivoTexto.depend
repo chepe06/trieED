@@ -33,7 +33,7 @@
 	"List.h"
 	<stdexcept>
 
-1595561703 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\main.cpp
+1595695684 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\main.cpp
 	<locale.h>
 	<stdio.h>
 	<stdlib.h>
@@ -43,6 +43,7 @@
 	<sstream>
 	<string.h>
 	"unsortedArrayDictionary.h"
+	"trie.h"
 
 1595555122 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\unsortedarraydictionary.h
 	"Dictionary.h"
@@ -60,4 +61,32 @@
 	<iostream>
 	"List.h"
 	<stdexcept>
+
+1595694955 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\trie.h
+	"TrieNode.h"
+	<string>
+	<stdexcept>
+
+1595694983 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\trienode.h
+	"bstreedictionary.h"
+	"arrayList.h"
+
+1595695064 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\bstreedictionary.h
+	"Dictionary.h"
+	"BSTree.h"
+	"KVPair.h"
+	<stdexcept>
+
+1595695102 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\bstree.h
+	"BSTNode.h"
+	<stdexcept>
+	"DLinkedList.h"
+
+1595695435 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\bstnode.h
+
+1595695479 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\dlinkedlist.h
+	<stdexcept>
+	"DNode.h"
+
+1595695516 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\archivotexto\include\dnode.h
 
