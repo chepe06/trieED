@@ -9,7 +9,9 @@ int main()
     setlocale(LC_CTYPE, "Spanish");
     int opc = 0;
 
+    cout << "Hola Main";
     words palabras;
+    cout << "Adios Main";
 
     while(opc != 7){ //Menú de opciones
         cout << "Seleccione una opción:\n1) Consultar por prefijo\n2) Buscar palabra\n3) Buscar por cantidad de letras\n4) Palabras más utilizadas\n5) Imprimir texto\n6) Imprimir palabras del trie\n7) Salir del programa\n\nOpción: ";
@@ -18,7 +20,7 @@ int main()
         if(opc == 1){
 
         } else if(opc == 2){
-
+            //palabras.lineasPalabra();
         } else if(opc == 3){
 
         } else if(opc == 4){

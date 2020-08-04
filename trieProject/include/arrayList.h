@@ -1,7 +1,7 @@
 #ifndef ARRAYLIST_H_INCLUDED
 #define ARRAYLIST_H_INCLUDED
 
-#define MAX_SIZE 1024
+#define MAX_SIZE 600000
 #include <iostream>
 #include "List.h"
 #include <stdexcept>

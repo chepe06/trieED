@@ -9,13 +9,12 @@ private:
     bool isFinal;
     int prefixCount;
     BSTreeDictionary<char, TrieNode*> children;
-    ArrayList<int> indices;// = new ArrayList<int>();
+    ArrayList<int> *indices = new ArrayList<int>(3000);
 
 public:
     TrieNode() : children() {
         isFinal = false;
         prefixCount = 0;
-//        indices = new ArrayList<int>();
     }
     ~TrieNode() {}
     bool getIsFinal() {
@@ -55,11 +54,25 @@ public:
         return children.getValues();
     }
     void setIndex(int index){
-        indices.append(index);
+        //cout << "Hola SetIndex";
+        indices->append(index);//SE CAE AQUÍ
+        //cout << "Adiós SetIndex";
     }
-    void getIndex(){
-        indices.print();
+    /*void printIndex(){
+        indices->print();
     }
+    ArrayList<int> *getIndex(){ //Retorna la lista de indices sin repetir números
+        ArrayList<int> *lista = new ArrayList<int>();
+        for(indices->goToStart(); !indices->atEnd(); indices->next()){
+            if(!lista->contains(indices->getElement())){
+                lista->append(indices->getElement());
+            }
+        }
+        return lista;
+    }
+    int getIndexSize(){
+       return indices->getSize();
+    }*/
 
 };
 

@@ -1,7 +1,7 @@
 #ifndef UNSORTEDARRAYDICTIONARY_H
 #define UNSORTEDARRAYDICTIONARY_H
 
-#define DEFAULT_MAX_SIZE 1024
+#define DEFAULT_MAX_SIZE 60000
 #include "Dictionary.h"
 #include "kvpair.h"
 #include "arrayList.h"
@@ -36,7 +36,7 @@ public:
     }
 
     void insert(K key, V value){
-        checkNotExisting(key);
+        //checkNotExisting(key);
         KVPair<K, V> p(key, value);
         pairs->append(p);
     }
@@ -106,6 +106,8 @@ public:
             cout << keys->getElement() << " " << values->getElement() << "\n";
             values->next();
         }
+        delete[] keys;
+        delete[] values;
     }
 
 };
