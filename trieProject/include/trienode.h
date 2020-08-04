@@ -5,11 +5,11 @@
 #include "arrayList.h"
 
 class TrieNode {
-private:
+protected:
     bool isFinal;
     int prefixCount;
     BSTreeDictionary<char, TrieNode*> children;
-    ArrayList<int> *indices = new ArrayList<int>(3000);
+    //ArrayList<int> *indices = new ArrayList<int>(20000);
 
 public:
     TrieNode() : children() {
@@ -53,12 +53,12 @@ public:
     List<TrieNode*>* getChildrenPointers() {
         return children.getValues();
     }
-    void setIndex(int index){
+    /*void setIndex(int index){
         //cout << "Hola SetIndex";
         indices->append(index);//SE CAE AQUÍ
         //cout << "Adiós SetIndex";
     }
-    /*void printIndex(){
+    void printIndex(){
         indices->print();
     }
     ArrayList<int> *getIndex(){ //Retorna la lista de indices sin repetir números

@@ -7,7 +7,7 @@
 #include <string.h>
 #include "unsortedArrayDictionary.h"
 #include "trie.h"
-#include "List.h"
+#include <limits>
 
 class words
 {
@@ -23,7 +23,7 @@ public:
     {
         //cout << "Ingrese el nombre del archivo junto con su extensión. Por ejemplo '"C:/Users/PC/Desktop/Prueba.txt";'\nNombre: ";
         //cin >> file;
-        string file = "Libros/WarPeace.txt";
+        string file = "Libros/Quijote.txt";
         archivo = &file;
         llenarListaIgnorados();
         llenarDiccionario();
@@ -217,6 +217,93 @@ public:
         system("cls");
     }*/
 
+     /*   void prefijos()  // busca un prefijo e imprime todas la palabras con el mismo y dice la cantidad de veces que se repite en el texto.
+    {
+
+
+        cout << "Escriba un prefijo \nPrefijo: ";
+        string prefijo; cin >> prefijo;
+
+        List<string> *lista = arbolPalabras.getMatches(prefijo);
+        if(lista->getSize()!= 0)
+        {
+            cout << "\nPalabras que empiezan con: "<< prefijo << endl << endl;
+            for (lista->goToStart(); !lista->atEnd(); lista->next())
+            {
+                if (arbolPalabras.getLinesSize(lista->getElement())==1)
+                {
+                    cout << lista->getElement() << " se repite: "<< arbolPalabras.getLinesSize(lista->getElement())<< " vez" << endl;
+                }
+                else
+                {
+                    cout << lista->getElement() << " se repite: "<< arbolPalabras.getLinesSize(lista->getElement())<< " veces" << endl;
+                }
+            }
+        }
+        else
+        {
+            cout<< "no existen palabras con ese prefijo"<< endl;
+        }
+
+        cout << " " << endl;
+        delete lista;
+        system("pause");
+        system("cls");
+
+    }
+
+    void letras()   // busca palabras por su cantidad de letras espesificas y dice cuantas veces de utiliza esa palabra en el texto
+    {
+        List<string> *lista = arbolPalabras.getMatches("");
+
+        cout << "Por favor digite un numero entero positivo"<< endl;
+        int numero;
+        while(!(cin >> numero)||numero<=0)
+        {
+            cout<< "por favor digite un numero: "<<endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        int contador;
+        contador = 0;
+        cout << "\nPalabras con " << numero << " de letras:" << endl << endl;
+        for (lista->goToStart(); !lista->atEnd(); lista->next())
+        {
+            string word;
+            word = lista->getElement();
+            if (word.length()== numero)
+            {
+                contador++;
+                if (arbolPalabras.getLinesSize(lista->getElement())==1)
+                {
+                    cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " vez" << endl;
+                }
+                else
+                {
+                    cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " veces" << endl;
+                }
+
+            }
+        }
+        if (numero==1)
+        {
+            if (contador == 0)
+            {
+                cout << "No existen palabras con " << numero << " letra."<< endl<< endl;
+            }
+        }
+        else
+        {
+            if (contador == 0)
+            {
+                cout << "No existen palabras con " << numero << " letras."<< endl<< endl;
+            }
+        }
+        cout << " " << endl;
+        delete lista;
+        system("pause");
+        system("cls");
+    }*/
 
 };
 
