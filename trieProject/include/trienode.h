@@ -4,18 +4,16 @@
 #include "bstreedictionary.h"
 #include "arrayList.h"
 
-class TrieNode {
-private:
+class TrieNode{
+protected:
     bool isFinal;
     int prefixCount;
     BSTreeDictionary<char, TrieNode*> children;
-    ArrayList<int> indices;// = new ArrayList<int>();
-
+    ArrayList<int> *indices = nullptr;
 public:
     TrieNode() : children() {
         isFinal = false;
         prefixCount = 0;
-//        indices = new ArrayList<int>();
     }
     ~TrieNode() {}
     bool getIsFinal() {
@@ -23,6 +21,9 @@ public:
     }
     void setIsFinal(bool isFinal) {
         this->isFinal = isFinal;
+        if(indices == nullptr){
+            indices = new ArrayList<int>(1024);
+        }
     }
     int getPrefixCount() {
         return prefixCount;
@@ -55,10 +56,22 @@ public:
         return children.getValues();
     }
     void setIndex(int index){
-        indices.append(index);
+        indices->append(index);
     }
-    void getIndex(){
-        indices.print();
+    void printIndex(){
+        indices->print();
+    }
+    ArrayList<int> *getIndex(){ //Retorna la lista de indices sin repetir números
+        ArrayList<int> *lista = new ArrayList<int>();
+        for(indices->goToStart(); !indices->atEnd(); indices->next()){
+            if(!lista->contains(indices->getElement())){
+                lista->append(indices->getElement());
+            }
+        }
+        return lista;
+    }
+    int getIndexSize(){
+       return indices->getSize();
     }
 
 };

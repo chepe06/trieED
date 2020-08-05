@@ -1,16 +1,19 @@
 # depslib dependency file v1.0
-1595707197 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
+1596612536 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
 	<iostream>
 	"words.h"
 
-1595708030 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
+1596612702 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
+	<iostream>
 	<fstream>
 	<sstream>
 	<string.h>
 	"unsortedArrayDictionary.h"
 	"trie.h"
+	<limits>
+	"arrayList.h"
 
-1595555122 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\unsortedarraydictionary.h
+1596081635 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\unsortedarraydictionary.h
 	"Dictionary.h"
 	"kvpair.h"
 	"arrayList.h"
@@ -22,17 +25,17 @@
 
 1595543475 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\kvpair.h
 
-1595554247 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\arraylist.h
+1596599700 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\arraylist.h
 	<iostream>
 	"List.h"
 	<stdexcept>
 
-1595707310 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trie.h
+1596609985 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trie.h
 	"TrieNode.h"
 	<string>
 	<stdexcept>
 
-1595694983 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trienode.h
+1596522678 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trienode.h
 	"bstreedictionary.h"
 	"arrayList.h"
 
@@ -54,4 +57,8 @@
 	"DNode.h"
 
 1595695516 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\dnode.h
+
+1596515813 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trienodefull.h
+	"bstreedictionary.h"
+	"arrayList.h"
 
