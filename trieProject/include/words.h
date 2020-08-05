@@ -1,7 +1,6 @@
 #ifndef WORDS_H
 #define WORDS_H
 
-//#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string.h>
@@ -23,7 +22,7 @@ public:
     {
         //cout << "Ingrese el nombre del archivo junto con su extensión. Por ejemplo '"C:/Users/PC/Desktop/Prueba.txt";'\nNombre: ";
         //cin >> file;
-        string file = "Libros/Quijote.txt";
+        string file = "Libros/WarPeace.txt";
         archivo = &file;
         llenarListaIgnorados();
         llenarDiccionario();
@@ -46,13 +45,8 @@ public:
             int aux = 0;
             while (getline(myFile, linea))  //Mientras encuentre líneas
             {
-                //cout << linea << "\n";
-                if(linea != "")  //Se eliminan líneas en blanco
-                {
-                    //cout << aux << " " << linea << endl;
-                    dict.insert(aux++, linea); //Se almacenan en el diccionario todas las líneas
-                    //aux++; //Se aumenta el número que se usara de llave
-                }
+                dict.insert(aux++, linea); //Se almacenan en el diccionario todas las líneas
+
             }
             myFile.close();
         }
@@ -115,17 +109,22 @@ public:
 
     string minusculas(string str)
     {
-        str[0] = tolower(str[0]);
+        for(int i = 0; i < str.length(); i++){
+            str[i] = tolower(str[i]);
+        }
         return str;
     }
 
     bool comprobarIgnorado(string Palabra)
     {
-        for(listaIgnorados->goToStart(); listaIgnorados->atEnd(); listaIgnorados->next()){
+        //cout << listaIgnorados->getSize();
+        listaIgnorados->goToStart();
+        for(int i = 0; i < listaIgnorados->getSize(); i++){
             if(Palabra == listaIgnorados->getElement())
             {
                 return true;
             }
+            listaIgnorados->next();
         }
         return false;
     }
@@ -137,7 +136,8 @@ public:
         int Switch = 0;
         const char CaracteresIndeseados[] =
         {
-            '(', ')', ';', ',', '.', ':', '[', ']', '-', '<', '>', '_', '+', '#', '$', '%', '&', '/', '«', '"', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '\''
+            '(', ')', ';', ',', '.', ':', '[', ']', '-', '<', '>', '_', '+', '#', '$', '%', '&', '/', '«', '"',
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '\'', '¿', '?', '!', '¡', '»'
         };
         for (unsigned int i = 0; i < Palabra.length(); i++)
         {
@@ -188,41 +188,49 @@ public:
         }
     }
 
-    /*void lineasPalabra(){
+    void lineasPalabra()
+    {
         cout << "Ingrese la palabra a buscar"<<endl;
         string word; cin >> word;
         word = minusculas(word);
-        //List<string> *lineas = dict.getValues();
+        List<int> *numLineas = dict.getKeys();
         List<string> *lista = arbolPalabras.getMatches(word);
         List<int> *lineas = arbolPalabras.getLines(word);
 
-        if (lista->getSize() != 0) {
-            if (arbolPalabras.getLinesSize(lista->getElement()) == 1) {
+        if (lista->getSize() != 0)
+        {
+            if (arbolPalabras.getLinesSize(lista->getElement()) == 1)
+            {
                 cout << word<< " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " vez" << endl;
-            } else {
+            }
+            else
+            {
                 cout << word<< " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " veces" << endl;
 
             }
-        } else {
+        }
+        else
+        {
             cout<< "\nLa palabra " <<  word  << " no se encuentra en el texto " << endl;
         }
-        cout << endl << endl;
-        cout << "Lineas: ";
+        cout << endl;
+        numLineas->goToStart();
         for(lineas->goToStart(); !lineas->atEnd(); lineas->next()){
-            cout << dict.getValue(lineas->getElement()) << endl;
+            cout << "Linea " << lineas->getElement() << ": " << dict.getValue(lineas->getElement()) << endl;
         }
 
         delete lista;
         system("pause");
         system("cls");
-    }*/
+    }
 
-     /*   void prefijos()  // busca un prefijo e imprime todas la palabras con el mismo y dice la cantidad de veces que se repite en el texto.
+    void prefijos()  // busca un prefijo e imprime todas la palabras con el mismo y dice la cantidad de veces que se repite en el texto.
     {
 
 
         cout << "Escriba un prefijo \nPrefijo: ";
-        string prefijo; cin >> prefijo;
+        string prefijo;
+        cin >> prefijo;
 
         List<string> *lista = arbolPalabras.getMatches(prefijo);
         if(lista->getSize()!= 0)
@@ -303,7 +311,173 @@ public:
         delete lista;
         system("pause");
         system("cls");
-    }*/
+    }
+
+    void masUsadas()
+    {
+
+        List<string> *lista = arbolPalabras.getMatches("");
+        ArrayList<int> apariciones;
+
+        cout << "Que cantidad del top palabras mas utilizada desea ver: "<< endl;
+        int numero;
+        while(!(cin >> numero)||numero<=0)
+        {
+            cout<< "por favor digite un numero: "<<endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+
+
+
+        cout << "\nTop " << numero << " palabras mas usadas:" << endl << endl;
+        for (lista->goToStart(); !lista->atEnd(); lista->next())
+        {
+            if(!apariciones.contains(arbolPalabras.getLinesSize(lista->getElement())))
+            {
+                apariciones.append(arbolPalabras.getLinesSize(lista->getElement()));
+            }
+        }
+
+        apariciones.ordenarMayor();
+        apariciones.goToStart();
+
+        for (int i =0 ; i< numero; i++)
+        {
+            int contador = 0;
+            for (lista->goToStart(); !lista->atEnd(); lista->next())
+            {
+                if (contador==0)
+                {
+                    if ( arbolPalabras.getLinesSize(lista->getElement()) == apariciones.getElement())
+                    {
+                        contador++;
+
+                        if (arbolPalabras.getLinesSize(lista->getElement())==1)
+                        {
+                            cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " vez" << endl;
+                        }
+                        else
+                        {
+                            cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " veces" << endl;
+                        }
+
+                    }
+                }
+                else
+                {
+                    if ( arbolPalabras.getLinesSize(lista->getElement()) == apariciones.getElement())
+                    {
+                        i++;
+                        if(i == numero )
+                        {
+                            break;
+                        }
+                        contador++;
+
+                        if (arbolPalabras.getLinesSize(lista->getElement())==1)
+                        {
+                            cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " vez" << endl;
+                        }
+                        else
+                        {
+                            cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " veces" << endl;
+                        }
+
+                    }
+                }
+            }
+            apariciones.next();
+        }
+
+        cout << endl;
+        delete lista;
+        system("pause");
+        system("cls");
+    }
+
+    void menosUsadas() // se puede conbinar coma mas usadas por medio de un parametro booleano!!
+    {
+
+        List<string> *lista = arbolPalabras.getMatches("");
+        ArrayList<int> apariciones;
+
+        cout << "Que cantidad del top palabras menos utilizada desea ver: "<< endl;
+        int numero;
+        while(!(cin >> numero)||numero<=0)
+        {
+            cout<< "por favor digite un numero: "<<endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+
+
+
+        cout << "\nTop " << numero << " palabras menos usadas:" << endl << endl;
+        for (lista->goToStart(); !lista->atEnd(); lista->next())
+        {
+            if(!apariciones.contains(arbolPalabras.getLinesSize(lista->getElement())))
+            {
+                apariciones.append(arbolPalabras.getLinesSize(lista->getElement()));
+            }
+        }
+
+        apariciones.ordenarMenor();
+        apariciones.goToStart();
+
+        for (int i =0 ; i< numero; i++)
+        {
+            int contador = 0;
+            for (lista->goToStart(); !lista->atEnd(); lista->next())
+            {
+                if (contador==0)
+                {
+                    if ( arbolPalabras.getLinesSize(lista->getElement()) == apariciones.getElement())
+                    {
+                        contador++;
+
+                        if (arbolPalabras.getLinesSize(lista->getElement())==1)
+                        {
+                            cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " vez" << endl;
+                        }
+                        else
+                        {
+                            cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " veces" << endl;
+                        }
+
+                    }
+                }
+                else
+                {
+                    if ( arbolPalabras.getLinesSize(lista->getElement()) == apariciones.getElement())
+                    {
+                        i++;
+                        if(i == numero )
+                        {
+                            break;
+                        }
+                        contador++;
+
+                        if (arbolPalabras.getLinesSize(lista->getElement())==1)
+                        {
+                            cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " vez" << endl;
+                        }
+                        else
+                        {
+                            cout << lista->getElement() << " se utiliza: "<< arbolPalabras.getLinesSize(lista->getElement())<< " veces" << endl;
+                        }
+
+                    }
+                }
+            }
+            apariciones.next();
+        }
+        cout << endl;
+
+        delete lista;
+        system("pause");
+        system("cls");
+    }
 
 };
 

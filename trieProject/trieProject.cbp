@@ -44,7 +44,6 @@
 		<Unit filename="include/arrayList.h" />
 		<Unit filename="include/kvpair.h" />
 		<Unit filename="include/trie.h" />
-		<Unit filename="include/trieNodeFull.h" />
 		<Unit filename="include/trienode.h" />
 		<Unit filename="include/unsortedArrayDictionary.h" />
 		<Unit filename="include/words.h" />

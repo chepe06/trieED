@@ -4,6 +4,8 @@
 
 using namespace std;
 
+//REVISAR FILTRO DE IGNORAR.TXT
+
 int main()
 {
     setlocale(LC_CTYPE, "Spanish");
@@ -14,16 +16,16 @@ int main()
     words palabras;
     system("cls");
 
-    while(opc != 7){ //Menú de opciones
+    /*while(opc != 7){ //Menú de opciones
         cout << "Seleccione una opción:\n1) Consultar por prefijo\n2) Buscar palabra\n3) Buscar por cantidad de letras\n4) Palabras más utilizadas\n5) Imprimir texto\n6) Imprimir palabras del trie\n7) Salir del programa\n\nOpción: ";
         cin >> opc;
         system("cls");
         if(opc == 1){
-            //palabras.prefijos();
+            palabras.prefijos();
         } else if(opc == 2){
-            //palabras.lineasPalabra();
+            palabras.lineasPalabra();
         } else if(opc == 3){
-
+            palabras.letras();
         } else if(opc == 4){
             int opcAux = 0;
             while(opcAux != 5){ //Menú de opciones 2
@@ -35,9 +37,9 @@ int main()
                 } else if(opcAux == 2){
                     //Limpiar lista de palabras a ignorar
                 } else if(opcAux == 3){
-                    //Ver top
+                    palabras.masUsadas();
                 } else if(opcAux == 4){
-                    //Ver palabras menos utilizadas
+                    palabras.menosUsadas();
                 }
             }
         } else if(opc == 5){
@@ -51,7 +53,7 @@ int main()
             system("pause");
             system("cls");
         }
-    }
+    }*/
 
     return 0;
 }

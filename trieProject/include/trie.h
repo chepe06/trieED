@@ -2,7 +2,6 @@
 #define TRIE_H
 
 #include "TrieNode.h"
-#include "trieNodeFull.h"
 #include <string>
 #include <stdexcept>
 
@@ -48,36 +47,21 @@ public:
 
     void insert(int c, string word)
     {
-        if (!containsWord(word))
-        {
+
             TrieNode *current = root;
-            //cout << endl << "size=" << word.size() << " ";
             for (unsigned int i = 0; i < word.size(); i++)
             {
-                //cout << " index=" << i << " ";
                 current->increaseCount();
                 if (!current->contains(word[i]))
                 {
-                    /*if(i == word.size()-1)  //Solo entra si es la última letra
-                    {
-                        cout << i << "=" << word;
-                        TrieNodeFull *newNode = new TrieNodeFull();
-                    }
-                    else
-                    {
-                        TrieNode *newNode = new TrieNode();
-                    }*/
-                    TrieNode *newNode = new TrieNodeFull();
+                    TrieNode *newNode = new TrieNode();
                     current->add(word[i], newNode);
                 }
                 current = current->getChild(word[i]);
-
             }
             current->increaseCount();
             current->setIsFinal(true);
-            //cout << c << " " << word << endl;
             current->setIndex(c);
-        }
 
     }
 
@@ -173,6 +157,19 @@ public:
             current = current->getChild(word[i]);
         }
         current->getIndex();
+    }*/
+    List<int> *getLines(string word)  //Retorna todas las líneas donde aparece la palabra
+    {
+        if (!containsWord(word))
+            throw runtime_error("Word not found.");
+        TrieNode* current = root;
+        for (unsigned int i = 0; i < word.size(); i++)
+        {
+            if (!current->contains(word[i]))
+                return 0;
+            current = current->getChild(word[i]); //Llega al último nodo
+        }
+        return current->getIndex();
     }
 
     int getLinesSize(string word)
@@ -186,10 +183,10 @@ public:
                 return 0;
             current = current->getChild(word[i]);
         }
-        current->getIndex()->print();
+        //current->getIndex()->print();
         return current->getIndexSize();
 
-    }*/
+    }
 
 };
 
