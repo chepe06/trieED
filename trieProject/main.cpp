@@ -12,10 +12,11 @@ int main()
     cout << "Bienvenido, se va a procesar el documento txt que indique a continuación\n\n";
 
     words palabras;
+    system("pause");
     system("cls");
 
-    while(opc != "7"){ //Menú de opciones
-        cout << "Seleccione una opción:\n1) Consultar por prefijo\n2) Buscar palabra\n3) Buscar por cantidad de letras\n4) Palabras más utilizadas\n5) Imprimir texto\n6) Imprimir palabras del trie\n7) Salir del programa\n\nOpción: ";
+    while(opc != "5"){ //Menú de opciones
+        cout << "Seleccione una opción:\n1) Consultar por prefijo\n2) Buscar palabra\n3) Buscar por cantidad de letras\n4) Palabras más utilizadas\n5) Salir del programa\n\nOpción: ";
         cin >> opc;
         system("cls");
         if(opc == "1"){
@@ -26,27 +27,26 @@ int main()
             palabras.letras();
         } else if(opc == "4"){
             string opcAux = "0";
-            while(opcAux != "6"){ //Menú de opciones 2
-                cout << "Seleccione una opción:\n1) Agregar palabra a ignorar\n2) Limpiar lista de palabras a ignorar\n3) Ver top\n4) Ver palabras menos utilizadas\n5) Imprimir ignorados\n6) Regresar\n\nOpción: ";
+            while(opcAux != "5"){ //Menú de opciones 2
+                cout << "Seleccione una opción:\n1) Agregar palabra a ignorar\n2) Limpiar lista de palabras a ignorar\n3) Ver top\n4) Ver palabras menos utilizadas\n5) Regresar\n\nOpción: ";
                 cin >> opcAux;
                 system("cls");
                 if(opcAux == "1"){
                     palabras.agregarIgnorados();
                 } else if(opcAux == "2"){
-                    //Limpiar lista de palabras a ignorar
+                    palabras.borrarIgnorados();
                 } else if(opcAux == "3"){
-                    palabras.masUsadas();
+                    palabras.top(true);
                 } else if(opcAux == "4"){
-                    palabras.menosUsadas();
-                } else if(opcAux == "5"){
-                    palabras.printIgnorados();
+                    palabras.top(false);
+                } else {
+                    cout << "Opción inválida\n";
+                    system("pause");
+                    system("cls");
                 }
             }
         } else if(opc == "5"){
-            palabras.imprimirDiccionario();
-        } else if(opc == "6"){
-            palabras.imprimirTrie();
-        } else if(opc == "7"){
+            palabras.borrarIgnorados();
             cout << "Saliendo...\n";
         } else {
             cout << "Opción inválida\n";

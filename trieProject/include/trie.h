@@ -47,20 +47,20 @@ public:
 
     void insert(int c, string word)
     {
-            TrieNode *current = root;
-            for (unsigned int i = 0; i < word.size(); i++)
-            {
-                current->increaseCount();
-                if (!current->contains(word[i]))
-                {
-                    TrieNode *newNode = new TrieNode();
-                    current->add(word[i], newNode);
-                }
-                current = current->getChild(word[i]);
-            }
+        TrieNode *current = root;
+        for (unsigned int i = 0; i < word.size(); i++)
+        {
             current->increaseCount();
-            current->setIsFinal(true);
-            current->setIndex(c);
+            if (!current->contains(word[i]))
+            {
+                TrieNode *newNode = new TrieNode();
+                current->add(word[i], newNode);
+            }
+            current = current->getChild(word[i]);
+        }
+        current->increaseCount();
+        current->setIsFinal(true);
+        current->setIndex(c);
 
     }
 
@@ -103,24 +103,26 @@ public:
 
     void remove(string word)
     {
-        if (!containsWord(word))
-            throw runtime_error("Word not found.");
-        TrieNode *current = root;
-        for (unsigned int i = 0; i < word.size(); i++)
+        if (containsWord(word))
         {
+            TrieNode *current = root;
+            for (unsigned int i = 0; i < word.size(); i++)
+            {
+                current->decreaseCount();
+                TrieNode *child = current->getChild(word[i]);
+                if (current->getPrefixCount() == 0)
+                    delete current;
+                else if (child->getPrefixCount() == 1)
+                    current->remove(word[i]);
+                current = child;
+            }
             current->decreaseCount();
-            TrieNode *child = current->getChild(word[i]);
             if (current->getPrefixCount() == 0)
                 delete current;
-            else if (child->getPrefixCount() == 1)
-                current->remove(word[i]);
-            current = child;
+            else
+                current->setIsFinal(false);
         }
-        current->decreaseCount();
-        if (current->getPrefixCount() == 0)
-            delete current;
-        else
-            current->setIsFinal(false);
+
     }
 
     void clear()
@@ -129,25 +131,48 @@ public:
         root = new TrieNode();
     }
 
-    List<string>* getMatches(string prefix)
+    List<string>* getMatches(string prefix) //Retorna un lista de strings con todas las palabras que tengan este prefijo
     {
-        List<string> *words = new DLinkedList<string>();
+        List<string> *palabras = new DLinkedList<string>();
         TrieNode* current = root;
         for (unsigned int i = 0; i < prefix.size(); i++)
         {
             if (!current->contains(prefix[i]))
-                return words;
+                return palabras;
             else
                 current = current->getChild(prefix[i]);
         }
-        getMatchesAux(current, prefix, words);
-        return words;
+        getMatchesAux(current, prefix, palabras);
+        return palabras;
+    }
+
+    List<string>* getWords(string prefix)
+    {
+        List<string> *palabras = new DLinkedList<string>();
+        TrieNode* current = root;
+        for (unsigned int i = 0; i < prefix.size(); i++)
+        {
+            if (!current->contains(prefix[i]))
+                return nullptr;
+            else
+                current = current->getChild(prefix[i]);
+
+            if(i == prefix.size()-1)
+            {
+                if(!current->getIsFinal())
+                {
+                    return nullptr;
+                }
+            }
+        }
+        getMatchesAux(current, prefix, palabras);
+        return palabras;
     }
 
     List<int> *getLines(string word)  //Retorna todas las líneas donde aparece la palabra
     {
         if (!containsWord(word))
-            throw runtime_error("Word not found.");
+            return nullptr;
         TrieNode* current = root;
         for (unsigned int i = 0; i < word.size(); i++)
         {
@@ -161,7 +186,7 @@ public:
     int getLinesSize(string word)
     {
         if (!containsWord(word))
-            throw runtime_error("Word not found.");
+            return -1;
         TrieNode* current = root;
         for (unsigned int i = 0; i < word.size(); i++)
         {
