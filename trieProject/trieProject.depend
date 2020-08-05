@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1596524873 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
+1596600710 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
 	<iostream>
 	"words.h"
 
-1596524767 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
+1596602304 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
+	<iostream>
 	<fstream>
 	<sstream>
 	<string.h>
@@ -23,12 +24,12 @@
 
 1595543475 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\kvpair.h
 
-1596521440 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\arraylist.h
+1596599700 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\arraylist.h
 	<iostream>
 	"List.h"
 	<stdexcept>
 
-1596522681 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trie.h
+1596601685 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trie.h
 	"TrieNode.h"
 	<string>
 	<stdexcept>

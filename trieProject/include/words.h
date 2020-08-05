@@ -1,6 +1,7 @@
 #ifndef WORDS_H
 #define WORDS_H
 
+#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string.h>
@@ -8,6 +9,7 @@
 #include "trie.h"
 #include <limits>
 
+using namespace std;
 class words
 {
 private:
@@ -15,16 +17,18 @@ private:
     string linea;
     UnsortedArrayDictionary<int, string> dict;
     Trie arbolPalabras;
-    ArrayList<string> *listaIgnorados = new ArrayList<string>(1024);
+    ArrayList<string> *listaIgnorados = new ArrayList<string>(512);
+    Trie pruebaIgnorados;
 
 public:
     words()
     {
         //cout << "Ingrese el nombre del archivo junto con su extensión. Por ejemplo '"C:/Users/PC/Desktop/Prueba.txt";'\nNombre: ";
         //cin >> file;
-        string file = "Libros/WarPeace.txt";
+        string file = "Libros/QuijoteCompleto.txt";
         archivo = &file;
-        llenarListaIgnorados();
+        //llenarListaIgnorados();
+        llenarPruebaIgnorados();
         llenarDiccionario();
         llenarTrie();
     }
@@ -70,11 +74,32 @@ public:
         }
         else
         {
-            //int aux = 0;
+            listaIgnorados->clear();
             while (getline(myFile, linea))  //Mientras encuentre líneas
             {
                 //cout << linea << "\n";
                 listaIgnorados->append(linea);
+            }
+            myFile.close();
+        }
+    }
+
+    void llenarPruebaIgnorados()
+    {
+        fstream myFile("ignorar.txt");
+        string linea;
+
+        if(!myFile.is_open())
+        {
+            throw runtime_error("Error en la apertura del archivo");
+        }
+        else
+        {
+            listaIgnorados->clear();
+            while (getline(myFile, linea))  //Mientras encuentre líneas
+            {
+                //cout << linea << "\n";
+                pruebaIgnorados.insert(0,linea);
             }
             myFile.close();
         }
@@ -109,7 +134,8 @@ public:
 
     string minusculas(string str)
     {
-        for(int i = 0; i < str.length(); i++){
+        for(int i = 0; i < str.length(); i++)
+        {
             str[i] = tolower(str[i]);
         }
         return str;
@@ -117,18 +143,8 @@ public:
 
     bool comprobarIgnorado(string Palabra)
     {
-        //cout << listaIgnorados->getSize();
-        listaIgnorados->goToStart();
-        for(int i = 0; i < listaIgnorados->getSize(); i++){
-            if(Palabra == listaIgnorados->getElement())
-            {
-                return true;
-            }
-            listaIgnorados->next();
-        }
-        return false;
+        return listaIgnorados->contains(Palabra);
     }
-
 
     string quitarIndeseados(string Palabra)  //Función que toma una palabra y le quita cualquier caracter fuera del abecedario
     {
@@ -164,25 +180,21 @@ public:
         {
             string line = lineas->getElement();
             int num = numeros->getElement();
-            //cout << num++ << " " << line << endl; //Hasta acá funciona bien
-            istringstream isstream(line);
 
+            istringstream isstream(line);
             while(isstream >> line)   //Separa la linea cada vez que encuentra un espacio
             {
                 line = minusculas(line);
                 line = quitarIndeseados(line);
-                //cout << num << " " << line << endl;
-                if(!comprobarIgnorado(line))  //Si no está en la lista de ignorados
+                //if(!listaIgnorados->contains(line))  //Si no está en la lista de ignorados
+                if(!pruebaIgnorados.containsWord(line))
                 {
                     if(line != "")
                     {
                         arbolPalabras.insert(num,line);
-                        //cout << num << "insertando " << line << endl;
                     }
                 }
-                //arbolPalabras.insert(num,line);
             }
-            //cout << num << endl;
             numeros->next();
             aux++;
         }
@@ -191,7 +203,8 @@ public:
     void lineasPalabra()
     {
         cout << "Ingrese la palabra a buscar"<<endl;
-        string word; cin >> word;
+        string word;
+        cin >> word;
         word = minusculas(word);
         List<int> *numLineas = dict.getKeys();
         List<string> *lista = arbolPalabras.getMatches(word);
@@ -215,7 +228,8 @@ public:
         }
         cout << endl;
         numLineas->goToStart();
-        for(lineas->goToStart(); !lineas->atEnd(); lineas->next()){
+        for(lineas->goToStart(); !lineas->atEnd(); lineas->next())
+        {
             cout << "Linea " << lineas->getElement() << ": " << dict.getValue(lineas->getElement()) << endl;
         }
 
@@ -250,7 +264,7 @@ public:
         }
         else
         {
-            cout<< "no existen palabras con ese prefijo"<< endl;
+            cout<< "No existen palabras con ese prefijo"<< endl;
         }
 
         cout << " " << endl;
@@ -479,6 +493,43 @@ public:
         system("cls");
     }
 
+    void agregarIgnorados() //Función que le permite al usuario escribir en el texto
+    {
+        ofstream archivo_ignorado;
+        string palabra;
+
+        archivo_ignorado.open("ignorar.txt",ios::app); //Se abre en modo añadir, no lo sobre escribe
+
+        if(archivo_ignorado.is_open())
+        {
+            cout << "Escriba una palabra: "<< endl;
+            cin.ignore();
+            getline(cin, palabra);
+            istringstream isstream(palabra);
+
+            while(isstream >> palabra)   //Separa la linea cada vez que encuentra un espacio
+            {
+                if(!listaIgnorados->contains(palabra))
+                {
+                    archivo_ignorado<<palabra<<endl;
+                }
+            }
+        }
+        else
+        {
+            throw runtime_error("Error Archivo no abierto");
+        }
+        archivo_ignorado.close();//Cerrando el archivo
+        system("pause");
+        system("cls");
+    }
+
+    void printIgnorados()
+    {
+        listaIgnorados->print();
+        system("pause");
+        system("cls");
+    }
 };
 
 #endif // WORDS_H

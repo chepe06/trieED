@@ -47,7 +47,6 @@ public:
 
     void insert(int c, string word)
     {
-
             TrieNode *current = root;
             for (unsigned int i = 0; i < word.size(); i++)
             {
@@ -145,19 +144,6 @@ public:
         return words;
     }
 
-    /*int getLines(string word)
-    {
-        if (!containsWord(word))
-            throw runtime_error("Word not found.");
-        TrieNode* current = root;
-        for (unsigned int i = 0; i < word.size(); i++)
-        {
-            if (!current->contains(word[i]))
-                return 0;
-            current = current->getChild(word[i]);
-        }
-        current->getIndex();
-    }*/
     List<int> *getLines(string word)  //Retorna todas las líneas donde aparece la palabra
     {
         if (!containsWord(word))
@@ -183,7 +169,6 @@ public:
                 return 0;
             current = current->getChild(word[i]);
         }
-        //current->getIndex()->print();
         return current->getIndexSize();
 
     }
