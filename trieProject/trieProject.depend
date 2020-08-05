@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1596612536 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
+1596665468 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
 	<iostream>
 	"words.h"
+	"windows.h"
 
-1596612702 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
+1596666578 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
 	<iostream>
 	<fstream>
 	<sstream>
@@ -30,27 +31,28 @@
 	"List.h"
 	<stdexcept>
 
-1596609985 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trie.h
+1596653413 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trie.h
 	"TrieNode.h"
 	<string>
 	<stdexcept>
 
-1596522678 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trienode.h
-	"bstreedictionary.h"
+1596666063 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trienode.h
+	"AVLTreeDictionary.h"
+	"BSTreeDictionary.h"
 	"arrayList.h"
 
-1595695064 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstreedictionary.h
+1596665989 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstreedictionary.h
 	"Dictionary.h"
 	"BSTree.h"
 	"KVPair.h"
 	<stdexcept>
 
-1595695102 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstree.h
+1596664656 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstree.h
 	"BSTNode.h"
 	<stdexcept>
 	"DLinkedList.h"
 
-1595695435 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstnode.h
+1596664427 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstnode.h
 
 1595695479 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\dlinkedlist.h
 	<stdexcept>
@@ -61,4 +63,17 @@
 1596515813 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trienodefull.h
 	"bstreedictionary.h"
 	"arrayList.h"
+
+1596666178 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\avltreedictionary.h
+	"Dictionary.h"
+	"AVLTree.h"
+	"KVPair.h"
+	<stdexcept>
+	"DLinkedList.h"
+
+1596666158 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\avltree.h
+	"BSTNode.h"
+	<stdexcept>
+	<cmath>
+	"DLinkedList.h"
 

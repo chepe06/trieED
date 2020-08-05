@@ -1,14 +1,15 @@
 #ifndef TRIENODE_H
 #define TRIENODE_H
 
-#include "bstreedictionary.h"
+#include "AVLTreeDictionary.h"
+#include "BSTreeDictionary.h"
 #include "arrayList.h"
 
 class TrieNode{
 protected:
     bool isFinal;
     int prefixCount;
-    BSTreeDictionary<char, TrieNode*> children;
+    AVLTreeDictionary<char, TrieNode*> children;
     ArrayList<int> *indices = nullptr;
 public:
     TrieNode() : children() {

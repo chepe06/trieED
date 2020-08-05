@@ -78,7 +78,7 @@ public:
             while (getline(myFile, linea))  //Mientras encuentre líneas
             {
                 //cout << linea << "\n";
-                listaIgnorados.insert(0,linea);
+                listaIgnorados.insert(0,linea,false);
             }
             myFile.close();
         }
@@ -120,7 +120,7 @@ public:
         return str;
     }
 
-    string quitarIndeseados(string Palabra)  //Función que toma una palabra y le quita cualquier caracter fuera del abecedario
+    string quitarIndeseados(string str)  //Función que toma una palabra y le quita cualquier caracter fuera del abecedario
     {
         string aux;
         int Switch = 0;
@@ -129,14 +129,14 @@ public:
             '(', ')', ';', ',', '.', ':', '[', ']', '-', '<', '>', '_', '+', '#', '$', '%', '&', '/', '«', '"',
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '\'', '¿', '?', '!', '¡', '»', '{', '}', '^',
         };
-        for (unsigned int i = 0; i < Palabra.length(); i++)
+        for (unsigned int i = 0; i < str.length(); i++)
         {
             for (unsigned int j = 0; j < strlen(CaracteresIndeseados); j++)
-                if (Palabra[i] == CaracteresIndeseados[j])
+                if (str[i] == CaracteresIndeseados[j])
                     Switch = 1;
 
             if (Switch == 0)
-                aux += Palabra[i];
+                aux += str[i];
             Switch = 0;
         }
         return aux;
@@ -165,7 +165,7 @@ public:
                 {
                     if(line != "")
                     {
-                        arbolPalabras.insert(num,line);
+                        arbolPalabras.insert(num,line,true);
                     }
                 }
             }
@@ -306,9 +306,12 @@ public:
         int numero;
         while(!(cin >> numero)||numero<=0)
         {
-            cout<< "Por favor digite un numero: "<<endl;
+            cout<< endl << "Debe ingresar un número"<<endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            system("pause");
+            system("cls");
+            cout << "Que cantidad del top desea ver: "<< endl;
         }
 
         if(numero < lista->getSize())
@@ -382,7 +385,7 @@ public:
             cout << "Debe indicar un número menor a " << lista->getSize();
         }
 
-        cout << endl;
+        cout << endl << endl;
         delete lista;
         system("pause");
         system("cls");
@@ -408,9 +411,12 @@ public:
                 if(!listaIgnorados.containsWord(palabra))
                 {
                     archivo_ignorado<<palabra<<endl;
-                    listaIgnorados.insert(0,palabra);
+                    listaIgnorados.insert(0,palabra,false);
                     nuevasIgnoradas.insert(palabra);
                     arbolPalabras.remove(palabra);
+                    cout << "Se agregó la palabra " << palabra << " al archivo de ignorados" << endl;
+                } else {
+                    cout << "La palabra " << palabra << " ya está en el archivo de ignorados" << endl;
                 }
             }
         }
@@ -419,6 +425,7 @@ public:
             throw runtime_error("Error Archivo no abierto");
         }
         archivo_ignorado.close();//Cerrando el archivo
+        cout << endl;
         system("pause");
         system("cls");
     }
@@ -435,15 +442,19 @@ public:
             lista->next();
         }
         file.close();
+
         remove("ignorar.txt"); //Borra el txt
         rename("copia.txt","ignorar.txt");
         remove("copia.txt");
 
         nuevasIgnoradas.goToStart();
         for(int i = 0; i < nuevasIgnoradas.getSize(); i++){
-            arbolPalabras.insert(0, nuevasIgnoradas.getElement());
+            arbolPalabras.insert(0, nuevasIgnoradas.getElement(),false);
             nuevasIgnoradas.next();
         }
+        cout << "Se limpió el archivo de ignorados" << endl;
+        system("pause");
+        system("cls");
     }
 };
 

@@ -1,12 +1,14 @@
 #include <iostream>
 
 #include "words.h"
+#include "windows.h"
 
 using namespace std;
 
 int main()
 {
-    setlocale(LC_CTYPE, "Spanish");
+    //setlocale(LC_CTYPE, "Spanish");
+    SetConsoleCP(1252); SetConsoleOutputCP(1252);
     string opc = "0";
 
     cout << "Bienvenido, se va a procesar el documento txt que indique a continuación\n\n";
@@ -39,6 +41,7 @@ int main()
                     palabras.top(true);
                 } else if(opcAux == "4"){
                     palabras.top(false);
+                } else if(opcAux == "5"){
                 } else {
                     cout << "Opción inválida\n";
                     system("pause");

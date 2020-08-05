@@ -34,9 +34,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/AVLTree.h" />
+		<Unit filename="include/AVLTreeDictionary.h" />
 		<Unit filename="include/BSTNode.h" />
-		<Unit filename="include/BSTree.h" />
-		<Unit filename="include/BSTreeDictionary.h" />
 		<Unit filename="include/DLinkedList.h" />
 		<Unit filename="include/DNode.h" />
 		<Unit filename="include/Dictionary.h" />

@@ -45,7 +45,7 @@ public:
         delete root;
     }
 
-    void insert(int c, string word)
+    void insert(int c, string word, bool index)
     {
         TrieNode *current = root;
         for (unsigned int i = 0; i < word.size(); i++)
@@ -60,8 +60,9 @@ public:
         }
         current->increaseCount();
         current->setIsFinal(true);
-        current->setIndex(c);
-
+        if(index){
+            current->setIndex(c);
+        }
     }
 
     bool containsWord(string word)
