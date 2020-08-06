@@ -197,7 +197,8 @@ public:
         }
     }
 
-    void ordenarMayor()
+    //Álvaro
+    void ordenarMayor() //Realiza un ordenamiento de mayor a menor
     {
         int Temp;
         for(int i=0; i<size; i++)
@@ -210,7 +211,8 @@ public:
                 }
     }
 
-    void ordenarMenor()
+    //Álvaro
+    void ordenarMenor() ////Realiza un ordenamiento de menor a mayor
     {
         int Temp;
         for(int i=0; i<size; i++)

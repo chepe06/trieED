@@ -45,6 +45,19 @@ public:
     BSTNode<E>* getUniqueChild() {
         return (left == nullptr? right : left);
     }
+    BSTNode<E>* getSuccessorAux(BSTNode<E>* pRoot) {
+        if (pRoot == NULL) {
+            return NULL;
+        }
+        if (pRoot->left == NULL) {
+            return pRoot;
+        } else {
+            return getSuccessorAux(pRoot->left);
+        }
+    }
+    BSTNode<E>* getSuccessor() {
+        return getSuccessorAux(right);
+    }
 };
 
 #endif // BSTNODE_H
