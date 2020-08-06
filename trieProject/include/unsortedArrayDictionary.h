@@ -10,10 +10,8 @@ template <typename K, typename V>
 class UnsortedArrayDictionary: public Dictionary<K, V>
 {
 private:
-    //Memoria estática ArrayList<KVPair<K, V> > pairs;
     ArrayList<KVPair<K, V> > *pairs; //Se pone el puntero para memoria dinámica
 
-    //Se encargan de verificar si existe o no existe (Se hacen métodos porque se van a usar varias veces)
     void checkNotExisting(K key) {
         if(contains(key)){
             throw runtime_error("Duplicated key");
@@ -26,7 +24,6 @@ private:
     }
 
 public:
-    //Memoria estática UnsortedArrayDictionary(int max = DEFAULT_MAX_SIZE) : pairs(max) {} //Constructor
     UnsortedArrayDictionary(int max = DEFAULT_MAX_SIZE) {
         pairs = new ArrayList<KVPair<K, V> >(max);
     }
@@ -36,7 +33,7 @@ public:
     }
 
     void insert(K key, V value){
-        //checkNotExisting(key);
+        //checkNotExisting(key); No se verifica porque sino revisa todo el diccionario de nuevo
         KVPair<K, V> p(key, value);
         pairs->append(p);
     }
@@ -45,7 +42,6 @@ public:
         checkExisting(key);
         KVPair<K, V> p = pairs->remove();
         return p.getValue();
-        //return pairs->getElement().getValue(); //train wrecks: Evitar esto ya que es más difícil identificar errores
     }
 
     V getValue(K key){

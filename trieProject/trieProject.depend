@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1596665468 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
+1596680939 source:d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\main.cpp
 	<iostream>
 	"words.h"
 	"windows.h"
 
-1596666578 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
+1596680927 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\words.h
 	<iostream>
 	<fstream>
 	<sstream>
@@ -14,7 +14,7 @@
 	<limits>
 	"arrayList.h"
 
-1596081635 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\unsortedarraydictionary.h
+1596674835 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\unsortedarraydictionary.h
 	"Dictionary.h"
 	"kvpair.h"
 	"arrayList.h"
@@ -36,9 +36,8 @@
 	<string>
 	<stdexcept>
 
-1596666063 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trienode.h
+1596666983 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\trienode.h
 	"AVLTreeDictionary.h"
-	"BSTreeDictionary.h"
 	"arrayList.h"
 
 1596665989 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\bstreedictionary.h
@@ -71,7 +70,7 @@
 	<stdexcept>
 	"DLinkedList.h"
 
-1596666158 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\avltree.h
+1596674898 d:\documentos\onedrive tec\onedrive - estudiantes itcr\programación\c++\proyectos\trieed\trieproject\include\avltree.h
 	"BSTNode.h"
 	<stdexcept>
 	<cmath>

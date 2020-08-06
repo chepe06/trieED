@@ -2,7 +2,6 @@
 #define TRIENODE_H
 
 #include "AVLTreeDictionary.h"
-#include "BSTreeDictionary.h"
 #include "arrayList.h"
 
 class TrieNode{

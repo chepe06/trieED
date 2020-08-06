@@ -7,11 +7,9 @@ using namespace std;
 
 int main()
 {
-    //setlocale(LC_CTYPE, "Spanish");
+    setlocale(LC_CTYPE, "Spanish");
     SetConsoleCP(1252); SetConsoleOutputCP(1252);
     string opc = "0";
-
-    cout << "Bienvenido, se va a procesar el documento txt que indique a continuación\n\n";
 
     words palabras;
     system("pause");

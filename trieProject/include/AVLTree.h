@@ -105,16 +105,12 @@ private:
         }
         if (element < pRoot->getElement()) {
             pRoot->setLeft(removeAux(pRoot->getLeft(), element));
-            //if (pRoot->getLeft() != NULL) { // probar sin esto
-                pRoot = rebalanceRight(pRoot);
-            //}
+            pRoot = rebalanceRight(pRoot);
             return pRoot;
         }
         if (element > pRoot->getElement()) {
             pRoot->setRight(removeAux(pRoot->getRight(), element));
-            //if (pRoot->getRight() != NULL) { // probar sin esto
-                pRoot = rebalanceLeft(pRoot);
-            //}
+            pRoot = rebalanceLeft(pRoot);
             return pRoot;
         } else {
             if (pRoot->isLeaf()) {
@@ -145,7 +141,6 @@ private:
         pRoot->setLeft(newRoot->getRight());
         newRoot->setRight(pRoot);
         return newRoot;
-        //return pRoot;
     }
     BSTNode<E>* rotateLeft(BSTNode<E>* pRoot) throw(runtime_error) {
         if(pRoot == nullptr) throw runtime_error("Can't rotate left on null");
@@ -154,7 +149,6 @@ private:
         pRoot->setRight(newRoot->getLeft());
         newRoot->setLeft(pRoot);
         return newRoot;
-        //return pRoot;
     }
     int height(BSTNode<E>* pRoot) {
         if (pRoot == NULL) {
